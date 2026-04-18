@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Anton", sans-serif;
+  --font-heading: "Space Grotesk", sans-serif;
+
+  --color-primary: #FF0000;
+  --color-gym-black: #050505;
+  --color-gym-card: rgba(20, 20, 20, 0.8);
+  --color-gym-border: rgba(255, 255, 255, 0.1);
+  --color-gym-text-dim: rgba(255, 255, 255, 0.6);
+}
+
+@layer base {
+  body {
+    @apply bg-gym-black text-white font-sans antialiased selection:bg-primary selection:text-white;
+  }
+}
+
+@layer utilities {
+  .theme-card {
+    @apply bg-gym-card border border-gym-border rounded-[12px] p-5 relative overflow-hidden;
+  }
+  .theme-btn {
+    @apply px-5 py-3 text-[11px] font-[800] uppercase border cursor-pointer inline-block tracking-wider transition-all;
+  }
+  .theme-btn-fill {
+    @apply bg-primary text-white border-primary hover:bg-white hover:text-black hover:border-white;
+  }
+  .theme-btn-outline {
+    @apply border-primary text-primary bg-transparent hover:bg-primary hover:text-white;
+  }
+  .theme-grid {
+    @apply grid gap-5 p-5;
+    grid-template-columns: 350px 1fr 280px;
+  }
+  @media (max-width: 1024px) {
+    .theme-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #FF0000;
+}
